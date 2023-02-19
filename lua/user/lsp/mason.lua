@@ -1,4 +1,5 @@
 local servers = {
+    "hls",
 	"sumneko_lua",
 	"cssls",
 	"html",

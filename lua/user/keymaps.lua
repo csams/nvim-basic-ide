@@ -21,6 +21,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<tab>", "<C-w>w", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -56,7 +57,9 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
+keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
