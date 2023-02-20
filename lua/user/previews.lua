@@ -1,4 +1,5 @@
--- previews.lua uses asciidoctor and pandoc to generate html and open a browser
+-- previews.lua uses asciidoctor, rst2html5.py, or pandoc to generate html and
+-- then opens a browser.
 
 
 local keymap = vim.keymap.set
