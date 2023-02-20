@@ -1,25 +1,38 @@
 -- previews.lua uses asciidoctor, rst2html5.py, or pandoc to generate html and
 -- then opens a browser.
 
-
 local keymap = vim.keymap.set
 local opts = { silent = true }
+
+local function get_files()
+  local full_doc_file = vim.fn.expand("%:p")
+  local full_html_path = vim.fn.expand("%:p:r") .. ".html"
+  return full_doc_file, full_html_path
+end
+
+local function run(cmd, from, to)
+  local output = vim.fn.system(cmd)
+
+  if output ~= "" then
+    vim.notify(output)
+  elseif vim.fn.filereadable(to) then
+    output = vim.fn.system("open " .. to)
+    if output ~= "" then
+      vim.notify(output)
+    end
+  else
+    vim.notify("Unable to render " .. from)
+  end
+end
 
 local function asciidoctor()
   if vim.fn.expand("%:e") ~= "adoc" then
     return
   end
 
-  local full_doc_file = vim.fn.expand("%:p")
-  local full_html_path = vim.fn.expand("%:p:r") .. ".html"
+  local full_doc_file, full_html_path = get_files()
   local cmd = "asciidoctor " .. full_doc_file
-  local err = vim._system(cmd)
-
-  if vim.fn.filereadable(full_html_path) then
-    vim._system("open " .. full_html_path)
-  else
-    vim.notify(err)
-  end
+  run(cmd, full_doc_file, full_html_path)
 end
 
 local function rst()
@@ -27,29 +40,15 @@ local function rst()
     return
   end
 
-  local full_doc_file = vim.fn.expand("%:p")
-  local full_html_path = vim.fn.expand("%:p:r") .. ".html"
+  local full_doc_file, full_html_path = get_files()
   local cmd = "rst2html5.py " .. full_doc_file .. " " .. full_html_path
-  local err = vim._system(cmd)
-
-  if vim.fn.filereadable(full_html_path) then
-    vim._system("open " .. full_html_path)
-  else
-    vim.notify(err)
-  end
+  run(cmd, full_doc_file, full_html_path)
 end
 
 local function pandoc()
-  local full_doc_file = vim.fn.expand("%:p")
-  local full_html_path = vim.fn.expand("%:p:r") .. ".html"
+  local full_doc_file, full_html_path = get_files()
   local cmd = "pandoc -t html " .. " -o " .. full_html_path .. " " .. full_doc_file
-  local err = vim._system(cmd)
-
-  if vim.fn.filereadable(full_html_path) then
-    vim._system("open " .. full_html_path)
-  else
-    vim.notify(err)
-  end
+  run(cmd, full_doc_file, full_html_path)
 end
 
 keymap("n", "<leader>pd", pandoc, opts)
