@@ -1,5 +1,6 @@
 local servers = {
-    "hls",
+  "gopls",
+  "hls",
 	"sumneko_lua",
 	"cssls",
 	"html",
