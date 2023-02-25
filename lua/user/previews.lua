@@ -11,7 +11,10 @@ local function get_files()
 end
 
 local function run(cmd, from, to)
-  local output = vim.fn.system(cmd)
+  local output = ""
+  if cmd ~= "" then
+    output = vim.fn.system(cmd)
+  end
 
   if output ~= "" then
     vim.notify(output)
@@ -51,7 +54,18 @@ local function pandoc()
   run(cmd, full_doc_file, full_html_path)
 end
 
+local function view()
+  local path = vim.fn.expand("%:p")
+  if vim.fn.filereadable(path) then
+    local output = vim.fn.system("open " .. path)
+    if output ~= "" then
+      vim.notify(output)
+    end
+  end
+end
+
 keymap("n", "<leader>pd", pandoc, opts)
 keymap("n", "<leader>ad", asciidoctor, opts)
 keymap("n", "<leader>md", pandoc, opts)
 keymap("n", "<leader>rd", rst, opts)
+keymap("n", "<leader>v", view, opts)
