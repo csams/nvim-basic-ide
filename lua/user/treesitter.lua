@@ -15,6 +15,8 @@ configs.setup {
     "fish",
     "go",
     "haskell",
+    "html",
+    "javascript",
     "json",
     "latex",
     "lua",
