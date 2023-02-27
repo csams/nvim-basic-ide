@@ -29,6 +29,8 @@ configs.setup {
     "rust",
     "sql",
     "toml",
+    "tsx",
+    "typescript",
     "yaml",
   }, -- put the language you want in this array
   -- ensure_installed = "all", -- one of "all" or a list of languages
