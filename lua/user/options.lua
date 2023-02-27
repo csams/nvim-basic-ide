@@ -8,12 +8,12 @@ vim.opt.hlsearch = true                         -- highlight all matches on prev
 vim.opt.ignorecase = true                       -- ignore case in search patterns
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10                          -- pop up menu height
-vim.opt.foldcolumn = "6"
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 0                         -- always show tabs
-vim.opt.smartcase = true                        -- smart case
-vim.opt.autoindent = true                       -- copy indent from current line when starting a new line
-vim.opt.smartindent = true                      -- make indenting smarter again
+-- vim.opt.smartcase = true                        -- smart case
+-- vim.opt.autoindent = true                       -- copy indent from current line when starting a new line
+-- vim.opt.smartindent = true                      -- make indenting smarter again
+vim.opt.cindent = true                          -- make indenting smarter again
 vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
 vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
 vim.opt.swapfile = false                        -- creates a swapfile
@@ -45,4 +45,7 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters
 vim.opt.linebreak = true
 vim.opt.confirm = true
 vim.opt.fillchars:append('fold:-')
-vim.opt.foldtext="getline(v:foldstart)"
+vim.opt.foldcolumn = "4"
+vim.opt.foldmethod = "manual"
+vim.opt.foldtext = "getline(v:foldstart)"
+vim.opt.foldnestmax = 4
