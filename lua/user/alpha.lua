@@ -18,6 +18,7 @@ dashboard.section.buttons.val = {
   dashboard.button("p", " " .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
 
   dashboard.button("z", " " .. " Find Zettel", ":Telekasten find_notes<CR>"),
+  dashboard.button("s", " " .. " Search Zettelkasten", ":lua require('telekasten').search_notes({default_text=''})<CR>"),
   dashboard.button("n", " " .. " New Zettel", ":Telekasten new_note<CR>"),
   dashboard.button("d", " " .. " Today's Zettel", ":Telekasten goto_today<CR>"),
   dashboard.button("t", " " .. " Zettel Tags", ":Telekasten show_tags<CR>"),
