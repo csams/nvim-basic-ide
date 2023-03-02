@@ -89,6 +89,10 @@ return packer.startup(function(use)
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
 
+  -- Telekasten
+    use { 'renerocksai/telekasten.nvim', requires = {'nvim-telescope/telescope.nvim', 'renerocksai/calendar-vim'} }
+    use { 'renerocksai/calendar-vim' }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

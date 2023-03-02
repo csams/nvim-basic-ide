@@ -34,7 +34,7 @@ local function asciidoctor()
   end
 
   local full_doc_file, full_html_path = get_files()
-  local cmd = "asciidoctor " .. full_doc_file
+  local cmd = "asciidoctor -r asciidoctor-diagram " .. full_doc_file
   run(cmd, full_doc_file, full_html_path)
 end
 
