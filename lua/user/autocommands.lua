@@ -27,6 +27,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+local luagroup = vim.api.nvim_create_augroup("luagroup", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = luagroup,
+  pattern = {"*.lua"},
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd "tabdo wincmd ="
