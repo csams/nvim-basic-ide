@@ -44,10 +44,10 @@ vim.opt.iskeyword:append("-")                   -- treats words with `-` as sing
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
 vim.opt.confirm = true
-vim.opt.fillchars:append('fold:-')
+-- vim.opt.fillchars:append('fold:-')
 vim.opt.foldcolumn = "4"
-vim.opt.foldmethod = "manual"
-vim.opt.foldtext = "getline(v:foldstart)"
+--vim.opt.foldmethod = "manual"
+-- vim.opt.foldtext = "getline(v:foldstart)"
 vim.opt.foldnestmax = 4
 vim.opt.conceallevel = 2
 vim.opt.textwidth = 110
