@@ -11,7 +11,8 @@ tk.setup({
 vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
 
 -- Most used functions
-vim.keymap.set("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
+vim.keymap.set("n", "<leader>zo", "<cmd>Telekasten new_templated_note<CR>")
+vim.keymap.set("n", "<leader>zff", "<cmd>Telekasten find_notes<CR>")
 vim.keymap.set("n", "<leader>zfd", "<cmd>Telekasten find_daily_notes<CR>")
 vim.keymap.set("n", "<leader>zfw", "<cmd>Telekasten find_weekly_notes<CR>")
 vim.keymap.set("n", "<leader>zm", "<cmd>Telekasten find_friends<CR>")

@@ -20,6 +20,7 @@ dashboard.section.buttons.val = {
   dashboard.button("z", " " .. " Find Zettel", ":Telekasten find_notes<CR>"),
   dashboard.button("s", " " .. " Search Zettelkasten", ":lua require('telekasten').search_notes({default_text=''})<CR>"),
   dashboard.button("n", " " .. " New Zettel", ":Telekasten new_note<CR>"),
+  dashboard.button("o", " " .. " New Zettel Template", ":Telekasten new_templated_note<CR>"),
   dashboard.button("d", " " .. " Today's Zettel", ":Telekasten goto_today<CR>"),
   dashboard.button("w", " " .. " This week's Zettel", ":Telekasten goto_thisweek<CR>"),
   dashboard.button("t", " " .. " Zettel Tags", ":Telekasten show_tags<CR>"),
