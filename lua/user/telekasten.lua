@@ -3,8 +3,15 @@ if not status_ok then
   return
 end
 
+local home = "/home/csams/projects/zk"
+
 tk.setup({
-  home = "/home/csams/projects/zk",
+  home = home,
+  dailies = "daily",
+  weeklies = "weekly",
+  templates = "templates",
+  image_subdir = home,
+  follow_creates_nonexisting = true,
 })
 
 -- Launch panel if nothing is typed after <leader>z
