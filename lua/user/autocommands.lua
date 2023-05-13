@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 local luagroup = vim.api.nvim_create_augroup("luagroup", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
   group = luagroup,
-  pattern = {"*.lua"},
+  pattern = {"*.lua", "*.md"},
   callback = function()
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2
