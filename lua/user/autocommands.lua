@@ -56,6 +56,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*.md" },
+  callback = function()
+    vim.cmd "loadview"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.md" },
+  callback = function()
+    vim.cmd "mkview"
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()
     vim.cmd "hi link illuminatedWord LspReferenceText"
