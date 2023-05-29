@@ -56,15 +56,17 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+local view_patterns = { "*.go", "*.hs", "*.md", "*.py", "*.rs" }
+
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.md" },
+  pattern = view_patterns,
   callback = function()
-    vim.cmd "loadview"
+    vim.cmd "silent! loadview"
   end,
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.md" },
+  pattern = view_patterns,
   callback = function()
     vim.cmd "mkview"
   end,
